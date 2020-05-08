@@ -19,25 +19,25 @@ B - Comum - Setup do BD:
 
 C - 2º Piloto - Criação de Model Usuario:
     ✔ Configurar .sequelizerc ["models-path": path.resolve("models")] @done(20-05-06 16:14)
-    ☐ Rodar o sequelize para criação/configuração de pasta de models [npx sequelize init:models]
-    ☐ Alterar a linha 8 do models/index.js para que o require carregue as configurações corretamente.
-    ☐ Criar model Usuario [Usuario.js]
-    ☐ Testar se model Usuario (testes/testeModelUsuario.js)
+    ✔ Rodar o sequelize para criação/configuração de pasta de models [npx sequelize init:models] @done(20-05-06 17:23)
+    ✔ Alterar a linha 8 do models/index.js para que o require carregue as configurações corretamente. @done(20-05-06 17:23)
+    ✔ Criar model Usuario [Usuario.js] @done(20-05-06 17:23)
+    ✔ Testar se model Usuario (testes/testeModelUsuario.js) @done(20-05-06 17:24)
 
 AULA 2 = = = = = = = = = = = = = = = = = = = =
 
 D - 3º Piloto - Criação do Model Post:
-    ☐ Criar o model Post
+    ✔ Criar o model Post @done(20-05-08 15:52)
 
 E - 4º Piloto - Criação do Model Comentario:
     ✘ Criar o model Comentario @cancelled
     ✘ Criar um método Post.getComentarios() no model Post que retorna um array de comentarios do Post @cancelled
 
 F - 5º Piloto - Login:
-    ☐ Instalar bcrypt
-    ☐ Instalar express-session
+    ✔ Instalar bcrypt @done(20-05-08 17:56)
+    ✔ Instalar express-session @done(20-05-08 17:56)
     ☐ Fazer o Login:
-        ☐ Criar rota post para '/login' que direciona para AuthController.login
+        ✔ Criar rota post para '/login' que direciona para AuthController.login @done(20-05-08 17:56)
         ☐ Criar método AuthController.login
             Caso o usuário com o email e senha digitados no form exista e tenha a senha
             correta, esse método deve criar uma session chamada usuario e armazenar
