@@ -1,5 +1,5 @@
-const { Usuario } = require('../models');
-const bcrpyt = require('bcrypt');
+const { Usuario, Post, Comentario } = require('../models');
+const bcrypt = require('bcrypt');
 
 const AuthController = {
     
@@ -12,8 +12,28 @@ const AuthController = {
         res.render('auth/register');
     },
 
-    showHome: (req,res) => {
-        res.render('index');
+    showHome: async (req,res) => {
+
+        //Carregando os Posts
+        let posts =  await Post.findAll(
+            {include:
+                [
+                    {
+                        model:Usuario,
+                        as: 'usuario',
+                        include: 'posts',
+                        attributes: {
+                            excludes:['senha']
+                        }
+                    },{
+                        model:Comentario,
+                        as:'comentarios',
+                        include:'autor'
+                    }
+                ]
+            })
+
+        res.render('index',{posts});
     },
 
     login: async (req,res) => {
@@ -31,7 +51,7 @@ const AuthController = {
 
         // se o usuário existir, verificar a senha
         // se senha não conferir, direcionar para /login
-        if(!bcrpyt.compareSync(senha, usuario.senha)){
+        if(!bcrypt.compareSync(senha, usuario.senha)){
             return res.redirect('/?error=1');
         }
 
